@@ -1,11 +1,20 @@
 {
   "name": "recsys-bench",
-  "build": { "dockerfile": "Dockerfile" },
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
   "features": {
     "ghcr.io/devcontainers/features/docker-in-docker:2": {},
     "ghcr.io/devcontainers/features/github-cli:1": {}
   },
-  "hostRequirements": { "cpus": 4, "memory": "16gb", "storage": "32gb" },
+  "hostRequirements": {
+    "cpus": 4,
+    "memory": "16gb",
+    "storage": "32gb"
+  },
+  "containerEnv": {
+    "UV_LINK_MODE": "copy"
+  },
   "postCreateCommand": "bash .devcontainer/setup.sh",
   "customizations": {
     "vscode": {
@@ -19,7 +28,9 @@
         "python.defaultInterpreterPath": ".venv/bin/python",
         "python.testing.pytestEnabled": true,
         "editor.formatOnSave": true,
-        "[python]": { "editor.defaultFormatter": "charliermarsh.ruff" }
+        "[python]": {
+          "editor.defaultFormatter": "charliermarsh.ruff"
+        }
       }
     }
   }
